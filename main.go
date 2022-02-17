@@ -42,10 +42,12 @@ func showMoon(args []string) {
 	theMoon.CalcParams()
 
 	fmt.Printf(
-		"Moon at %s:\nAge: %.2f days\nPhase: %.2f\nDistance: %.2f Earth Radii\nLongitude: %.2f degrees\nLatitude: %.2f degrees\n",
+		"Moon at %s:\nAge: %.2f days\nPhase: %.2f (%s)\nConstellation: %s\nDistance: %.2f Earth Radii\nLongitude: %.2f degrees\nLatitude: %.2f degrees\n",
 		date.Format("2 January 2006"),
 		theMoon.Age,
 		theMoon.Phase,
+		theMoon.GetHumanPhase(),
+		theMoon.GetZodiacSign(),
 		theMoon.Distance,
 		theMoon.Longitude,
 		theMoon.Latitude,
