@@ -47,6 +47,40 @@ func (moon *Moon) GetHumanPhase() string {
 	return humanPhase
 }
 
+func (moon *Moon) GetZodiacSign() string {
+	var zodiacSign string
+
+	if moon.Longitude < 33.18 {
+		zodiacSign = "Pisces"
+	} else if moon.Longitude < 51.16 {
+		zodiacSign = "Aries"
+	} else if moon.Longitude < 93.44 {
+		zodiacSign = "Taurus"
+	} else if moon.Longitude < 119.48 {
+		zodiacSign = "Gemini"
+	} else if moon.Longitude < 135.30 {
+		zodiacSign = "Cancer"
+	} else if moon.Longitude < 173.34 {
+		zodiacSign = "Leo"
+	} else if moon.Longitude < 224.17 {
+		zodiacSign = "Virgo"
+	} else if moon.Longitude < 242.57 {
+		zodiacSign = "Libra"
+	} else if moon.Longitude < 271.26 {
+		zodiacSign = "Scorpio"
+	} else if moon.Longitude < 302.49 {
+		zodiacSign = "Sagittarius"
+	} else if moon.Longitude < 311.72 {
+		zodiacSign = "Capricorn"
+	} else if moon.Longitude < 348.58 {
+		zodiacSign = "Aquarius"
+	} else {
+		zodiacSign = "Pisces"
+	}
+
+	return zodiacSign
+}
+
 func (moon *Moon) calcPhase() {
 	phase := normalize((float64(moon.julianDay) - 2451550.1) / 29.530588853)
 

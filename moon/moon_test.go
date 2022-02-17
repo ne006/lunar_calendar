@@ -36,7 +36,17 @@ func TestGetHumanPhase(t *testing.T) {
 
 	the_moon.CalcParams()
 
-	if phase := the_moon.GetHumanPhase(); phase != "Full moon1" {
-		t.Errorf("%#v should be in \"Full moon\", got \"%s\"", the_moon, phase)
+	if phase := the_moon.GetHumanPhase(); phase != "Full moon" {
+		t.Errorf("Human phase should be \"Full moon\", got \"%s\"", phase)
+	}
+}
+
+func TestGetZodiacSign(t *testing.T) {
+	the_moon := MoonFor(2459625)
+
+	the_moon.CalcParams()
+
+	if zodiacSign := the_moon.GetZodiacSign(); zodiacSign != "Cancer" {
+		t.Errorf("Constellation should be in \"Cancer\", got \"%s\"", zodiacSign)
 	}
 }
