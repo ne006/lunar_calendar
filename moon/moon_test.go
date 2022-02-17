@@ -30,3 +30,13 @@ func TestCalcParams(t *testing.T) {
 		t.Errorf("moon.latitude = %.20f, want %.20f", theMoon.Latitude, moonLatitude)
 	}
 }
+
+func TestGetHumanPhase(t *testing.T) {
+	the_moon := MoonFor(2459625)
+
+	the_moon.CalcParams()
+
+	if phase := the_moon.GetHumanPhase(); phase != "Full moon1" {
+		t.Errorf("%#v should be in \"Full moon\", got \"%s\"", the_moon, phase)
+	}
+}

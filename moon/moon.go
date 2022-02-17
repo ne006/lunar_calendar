@@ -21,6 +21,32 @@ func (moon *Moon) CalcParams() {
 	moon.calcCoords()
 }
 
+func (moon *Moon) GetHumanPhase() string {
+	var humanPhase string
+
+	if moon.Age < 1.84566 {
+		humanPhase = "New moon"
+	} else if moon.Age < 5.53699 {
+		humanPhase = "Waxing crescent"
+	} else if moon.Age < 9.22831 {
+		humanPhase = "First quarter"
+	} else if moon.Age < 12.91963 {
+		humanPhase = "Waxing gibbous"
+	} else if moon.Age < 16.61096 {
+		humanPhase = "Full moon"
+	} else if moon.Age < 20.30228 {
+		humanPhase = "Waning gibbous"
+	} else if moon.Age < 23.99361 {
+		humanPhase = "Last quarter"
+	} else if moon.Age < 27.68493 {
+		humanPhase = "Waning crescent"
+	} else {
+		humanPhase = "New moon"
+	}
+
+	return humanPhase
+}
+
 func (moon *Moon) calcPhase() {
 	phase := normalize((float64(moon.julianDay) - 2451550.1) / 29.530588853)
 
